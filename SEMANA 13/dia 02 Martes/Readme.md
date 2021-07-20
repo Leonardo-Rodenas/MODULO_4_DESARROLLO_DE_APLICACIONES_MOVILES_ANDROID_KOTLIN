@@ -95,6 +95,9 @@ class MainActivity : AppCompatActivity() {
 ~~~
 </br>
 </br>
+![imagen](https://ibb.co/BqgCvMw)
+</br>
+</br>
 ## ___Actividad 03___: 
 Se continua avanzando el proyecto y se concluye el Markdown para subir como presentación (incluido en el repositorio de módulo 03 y subido al aula como evaluación para el módulo).
 
