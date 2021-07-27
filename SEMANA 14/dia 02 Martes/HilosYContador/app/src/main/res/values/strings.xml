@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HilosYContador</string>
+    <string name="btn1">Iniciar</string>
+    <string name="btn2">Pausar</string>
+    <string name="btn3">Continuar</string>
+    <string name="btn4">Reiniciar</string>
+    <string name="btn5">Detener</string>
+    <string name="titulo">HILOS Y CONTADOR</string>
+</resources>

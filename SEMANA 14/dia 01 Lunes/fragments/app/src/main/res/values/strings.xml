@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">fragments</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="auto">Un auto</string>
+    <string name="avion">Un avion</string>
+    <string name="barco">Un barco</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
