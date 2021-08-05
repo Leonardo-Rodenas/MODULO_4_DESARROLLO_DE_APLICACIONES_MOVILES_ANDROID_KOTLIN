@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="40dp"
+    android:layout_margin="16dp"
+    android:layout_height="210dp"
+    android:background="#3B9DAA"
+    android:backgroundTint="#3B9DAA">
+
+    <ImageView
+        android:id="@+id/ivlibro"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_margin="30dp"
+        android:scaleType="centerCrop"
+        tools:contentDescription=""
+        android:contentDescription="TODO" />
+
+    <LinearLayout
+        android:layout_width="201dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="#3B9DAA"
+        android:backgroundTint="#162473"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvtitulo"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_gravity="end"
+            android:gravity="center_horizontal"
+            android:paddingStart="5dp"
+            android:paddingTop="30dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="30dp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+
+            tools:text="TITULO LIBRO" />
+
+        <TextView
+            android:id="@+id/tvautor"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:fontFamily="serif"
+            android:gravity="center_horizontal"
+            android:paddingStart="5dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="5dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+
+            android:textStyle="italic"
+            tools:text="AUTOR" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

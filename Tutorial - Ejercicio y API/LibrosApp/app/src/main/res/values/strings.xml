@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LibrosApp</string>
+    <string name="titulo">Buscador de Libros</string>
+    <string name="buscar">¿Buscas algún libro?</string>
+</resources>
