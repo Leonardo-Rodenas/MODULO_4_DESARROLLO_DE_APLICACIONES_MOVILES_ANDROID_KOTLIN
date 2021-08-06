@@ -1,10 +1,16 @@
 package com.example.librosapp
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.SearchEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
@@ -162,5 +168,32 @@ se necesita implementar para poder continuar este apartado (busca (12) y contiua
         imm.hideSoftInputFromWindow(binding.root.windowToken, 0)
     }
 
+    override fun onCreateOptionsMenu(menu:Menu?):Boolean{
+        menuInflater.inflate(R.menu.menu_mandar_correo, menu)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val id:Int = item.itemId
+
+        if (id == R.id.botoncorreo) {
+            Toast.makeText(this, "Enviar correo", Toast.LENGTH_SHORT).show()
+            val i : Intent = Intent(this, CorreoActivity::class.java)
+            startActivity(i)
+
+           /* https://www.youtube.com/watch?v=GOqv3jnw_Go
+
+           lateinit var btncorreo : Button
+            if (btncorreo.isClickable)
+            btncorreo.setOnClickListener {
+                val emailIntent = Intent (Intent.ACTION_SENDTO,
+                    Uri.fromParts("mailto:", "leo.rodenas.e@gmail.com", null))
+            startActivity(Intent.createChooser(emailIntent, "Enviar correo..."))
+            }else{
+                Toast.makeText(this, "No tiene una app para hacer esto", Toast.LENGTH_SHORT).show()
+            }*/
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

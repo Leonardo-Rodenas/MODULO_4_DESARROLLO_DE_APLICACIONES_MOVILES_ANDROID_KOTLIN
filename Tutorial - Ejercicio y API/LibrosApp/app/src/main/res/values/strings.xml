@@ -2,4 +2,13 @@
     <string name="app_name">LibrosApp</string>
     <string name="titulo">Buscador de Libros</string>
     <string name="buscar">¿Buscas algún libro?</string>
+    <string name="enviarcorreo">enviarcorreo</string>
+    <string name="volver">volver</string>
+    <string name="direccioncorreo">Destinatarios</string>
+    <string name="to">Para:</string>
+    <string name="subject">Asunto:</string>
+    <string name="asunto">Asunto</string>
+    <string name="mensaje">Mensaje:</string>
+    <string name="cuerpomensaje">Escribe un mensaje</string>
+    <string name="botonenviar">ENVIAR</string>
 </resources>
