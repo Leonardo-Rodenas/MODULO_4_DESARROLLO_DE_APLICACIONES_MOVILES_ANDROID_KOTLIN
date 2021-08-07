@@ -1,11 +1,11 @@
 <center>
 
-# Tutorial sobre como conectarse a la API Google Books (por Leo :dog:)
+# Tutorial sobre como conectarse a la API Google Books (por Leo)
 
 </center>
 
 <br>
-<p style='text-align: right;'> * Se aceptan sugerencias y correciones  </p>
+<p style='text-align: right;'> * Se aceptan sugerencias y correcciones (acá no hay corrector ortográfico, asi que mis disculpas de antemano XD) </p>
 
 ---
 
@@ -717,7 +717,7 @@ Nota como en algunos casos, al no tener datos la CardView reemplaza con sin auto
 
 ---
 
-1. El último paso para terminar este tutorial (ahora sí) es implementar el SearchView, para que de esta manera podamos buscar los datos de libros a nuestra elección. Así que manos a la obra.
+7. El último paso para terminar este tutorial (ahora sí) es implementar el SearchView, para que de esta manera podamos buscar los datos de libros a nuestra elección. Así que manos a la obra.
 
 Primero, vuelve al inicio del proyecto, especificamente al inicio de la clase MainActivity y a esta línea:
 
@@ -789,6 +789,290 @@ Con todo eso ya podriamos hacer correr la app y probar el SearchView, efectuando
 <center>
 
 ![20210805_174527](https://i.imgur.com/CEhZqCS.gif)
+
+</center>
+
+---
+
+8. Uhhhh.... llevamos caleta. y eso es practicamente sólo una de las partes del ejercicio, ahora hay que pasar a la siguiente. Como esta cosa es media "marciana :alien:" no voy a seguir el orden en que estan los puntos del ejercicio. Ahora vamos a hacer lo que es implementar el mandar un correo electrónico desde la App (te prometo que es más corto, aunque no se si más sencillo.... naaaah, la cosa de la API es muy rara y complicada, esto de seguro es más fácil).
+
+Para esto partamos importando 2 "Vector Asset", la flecha hacia la izquierda (en la foto de la derecha) y la carta (busca la carta y la flecha dancho click en el cuadro rojo de la imagen). Una vez encuentres cada una, dale click a next y luego a finish, y ambas imágenes seran importadas a tu carpeta drawable del proyecto
+
+<center>
+
+![3](https://i.imgur.com/gJFRz1r.png)
+
+</center>
+
+Luego de esto, crea tambien dos menús, para hacer la parte en la Action Bar (la barra superior de la app con su nombre) en donde van a estar los botones para enviar el correo (la cartita) y la flecha a la izquierda que nos permite devolvernos a la activity de inicio en caso de arrepentirnos de querer enviar un correo. Para esto, da click drecho en re/new/Android Resource File (imagen superior) y al momento de aparecer la segunda pantalla verifica por cambiar lo que está en el cuadro rojo a menu, ponle el nombre que quieras, pero en este caso al primer menú yo le llamé "menu_mandar_correo" y al segundo "menuvolver" (nota que se te creo una nueva carpeta para los .xml de estos 2 menús)
+
+![6](https://i.imgur.com/qgv4N72.png)
+
+___Ojo --> el paso siguiente está explicado para sólo uno de los menús, la razón de esto es que para el otro hay que hacer lo mismo, solo cambiando la imagen de la carta por la flecha a la izquierda.___
+
+En uno de los menús creados, agregale este bloque de código (la imagen muestra la pantalla divididad, a la izquierda el código89 y a la derecha la apariencia). Notar en el circulo rojo es lo que estamos configurando (y que partio añadiendo un menú item como el del cuadro amarillo), que la línea verde es lo que hay que cambiar para dar la ruta a la imagen de la flecha en el siguiente menú y que la línea azul en para que el botón este siempre visible y no aparezca solamente cuando se le de click.
+
+![pantallazo](https://i.imgur.com/9idMGUF.png)
+
+Ahora, antes de seguir crea una nueva "Empty activity" (no pondre imágen pues asumo que a esta altura todos saben hacerlo) y llamala "CorreoActivity"
+
+Después en la MainActivity, hay que incluir las siguientes dos funciones, para que de este modo al iniciar se cargue sobre la lista de los libros el menú que tendrá la carta. El primero de ellos (onCreateOptionsMenu) lo que hace es Inflar la MainActivity con el menuInflater ubicado en R.menu.menu_mandar_correo, del tipo menu y el segundo (onOptionsItemSelected) le dice que si la id del boton es igual a botoncorreo (el nombre del boton de la carta), al ser clickeada munestre un Toast que diga "Enviar correo" y que mediante un Intent me dirija a la otra activity creada llamada "CorreoActivity".
+
+~~~Kotlin
+override fun onCreateOptionsMenu(menu:Menu?):Boolean{
+
+    menuInflater.inflate(R.menu.menu_mandar_correo, menu)
+    return true
+
+}
+
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+    val id:Int = item.itemId
+
+    if (id == R.id.botoncorreo) {
+            Toast.makeText(this, "Enviar correo", Toast.LENGTH_SHORT).show()
+            val i : Intent = Intent(this, CorreoActivity::class.java)
+            startActivity(i)
+    }
+    return super.onOptionsItemSelected(item)
+}
+~~~
+<br>
+
+Luego, en la nueva activity creada, a activity_correo.xml hay que darle los campos para que quede como en la siguiente imagen (puedes cambiar colores y formas, pero lo importante es que tenga todo lo que aparece acá, así que descuida, adjuntaré el codigo para que lo copies).
+
+<center>
+
+![correo](https://i.imgur.com/6zg4aUY.png)
+
+</center>
+
+~~~Kotlin
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0AC2DC"
+    android:backgroundTint="#0AC2DC"
+    tools:context=".CorreoActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="25dp"
+        android:contentDescription="@string/titulo"
+        android:src="@mipmap/logo"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:textSize="25sp"
+        android:text="@string/to"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/introducircorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/direccioncorreo"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:background="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:textSize="25sp"
+        android:text="@string/subject"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/introducirasunto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/asunto"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:background="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:textSize="25sp"
+        android:text="@string/mensaje"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/introducirmensaje"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/cuerpomensaje"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:lines="10"
+        android:gravity="start"
+        android:background="@color/white" />
+
+    <Button
+        android:id="@+id/botonenviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:text="@string/botonenviar"
+        android:textSize="22sp"
+        android:padding="10dp"
+        android:backgroundTint="#162473"/>
+
+
+</LinearLayout>
+~~~
+<br>
+
+Ahora, con el activity_correo.xml listo, nos dirihimos a CorreoActivity.kt y lo que hay que hacer en primera instancia es colocarle el menú overflow (arriba, como el de la cartita), esto se hace con las mismas funciones que en el caso anterior, pero cambiando la ruta donde está el menú al de la flecha e indicando que al hacerle click te envie a la MainActivity (copio las funciones para que las veas).
+
+~~~Kotlin
+override fun onCreateOptionsMenu(menu: Menu?):Boolean{
+        menuInflater.inflate(R.menu.menuvolver, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val id:Int = item.itemId
+
+        if (id == R.id.volver) {
+            Toast.makeText(this, "Volver a libros", Toast.LENGTH_SHORT).show()
+            val i : Intent = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+~~~
+<br>
+
+Ahora sí, despues de preparar todo eso es que recién podemos ponernos al código de la función que nos va a permitir enciar un correo (vía Gmail).
+
+---
+
+9. Siguiendo en CorreoActivity.kt partiremos haciendo el viewBinding a esta Activity, como es costumbre partiendo con la variable lateinit y dentro del método onCreate añadiendo/cambiando lo que está por lo siguiente 
+
+~~~Kotlin
+package com.example.librosapp
+
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+import com.example.librosapp.databinding.ActivityCorreoBinding
+import kotlinx.android.synthetic.main.activity_correo.*
+
+class CorreoActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityCorreoBinding // añadir esta variable de iniciacion tardía
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityCorreoBinding.inflate(layoutInflater) // Añadir esta línea
+        setContentView(binding.root) //Cambiar lo que está originalmente entre los paréntesis por binding.root
+}
+~~~
+<br>
+
+Ahora, sin salir del método onCreate hacemos el binding al boton (botonenviar) y le añadimos la propiedad setOnClickListener (acá hay que estar atentos, pues esta propiedad al escribirla sugiere dos que tienen el mismo nombre, en nuestro caso hay que añadir la que tiene las llaves { }, ya que si intentamos incluir la de los paréntesis no va a resulta, esa hace otra función que no es la que estamos buscando ), seguido de esto declaramos 3 constantes email, asunto y mensaje, en las qu cada una seran asociadas mendiante el binding a su vista en el layout (es decir cada uno de los editText colocados en el achivo activity_correo.xml) y se les da la propiedad de que cada uno de los textos escritos sea convertido a String (text.toString())
+
+~~~Kotlin
+        binding.botonenviar.setOnClickListener {
+
+            val email = binding.introducircorreo.text.toString()
+            val asunto = binding.introducirasunto.text.toString()
+            val mensaje = binding.introducirmensaje.text.toString()
+~~~
+<br>
+
+Hacer notar antes de seguir, que puede ocurrir el caso donde el correo sea enviado a más de una persona, por esta razon se especifica en la siguiente constante llamada direcciones, que se va a enviar un email con la funcion split (esta funcion permite dividir un String usando un delimitador dado en Kotlin) para que con el delimitador " , " y con la clase Regular Expresión (Regex, que no estoy seguro exactamente como funciona, sorry) la función split () devuelveva una lista de Strings (los correos) que luegoserán convertidos en un Array, por lo que al final se invoca a la función toTypedArray () para esto.
+
+~~~Kotlin
+val direcciones =  email.split(",".toRegex()).toTypedArray()
+~~~
+<br>
+
+Ahora, siguiendo dentro del onCreate a continuación de la anterior se crea una constante intent (la variable en minúscula), la cual va a traer un Intent (la clase Intent, por eso en mayúscula (intent =/= Intent)) y esta misma va a invocar como atributo la función ACTION_SEND, en esta parte aclarar que el IDE sugiere 3 opciones para esto, la diferencia entre estos es:
+
++ ___ACTION_SENDTO:___ Para enviarlo a destino
++ ___ACTION_SEND:___ Para enviarlo a destino + 1 archivo adjunto
++ ___ACTION_SEND_MULTIPLE:___ Para enviarlo a destino + múltiples archivos adjuntos
+
+De esta manera, nosotros usaremos el ACTION_SENDTO, ya que no tenemos intención en mandar algun adjunto en el correo. Fuera de los paréntesis se da la función apply {} para que todo el intent dentro de las llaves reciba las acción que se defina
+
+~~~Kotlin
+val intent = Intent (Intent.ACTION_SENDTO).apply {
+
+    data = Uri.parse("mailto:")
+    putExtra(Intent.EXTRA_EMAIL,direcciones)
+    putExtra(Intent.EXTRA_SUBJECT,asunto)
+    putExtra(Intent.EXTRA_TEXT,mensaje)
+               
+}
+~~~
+<br>
+
+Dicho así, dentro de las parentesis del bloque de código superior la función data (recuerda que con apply se le esta diciendo que se aplica al intent (variable), por tanto dentro de las llaves intent.data es lo mismo que data, el intent va implícito de antes) hace que el sistema reciba la orden que será e interpretada como un correo electrónico y los distintos putExtra se encargan de hacer que el Intent (la clase, en mayúsculas) pase una String como email (las direcciones de la variable creada anteriormente), una como asunto y otra como mensaje, para que así estos datos sean transferidos directamente a Gmail y no se necesite escribir dos veces el correo.
+
+Para finalizar esta parte, vamos a hacer un manejo de errores el cual controlará:
+
++ ___Intenta (try)___ = si resulta todo bien, iniciar la activity intent dando a escojer un menú llamado "Elije un cliente de correo" para indicar cual aplicación de correo desea usar el usuario para enviar el mail (esto aparece sólo en caso de existir más de una app de correo en el teléfono, por ejemplo yahoo mail, gmail, outlook, etc). En este caso la activity que se inicia automáticamente es Gmail, pues es la unica app de correo instalada.
++  ___Atrapa (catch)___ = si hay un error (e : ActivityNotFoundException) donde no exista una activity para continuar (esto es, que no hay alguna app de correo instalada, no hay internet o algún otro problema) muestre un Toast con el siguiente mensaje "Ha ocurrido un error o no tienes una app de correo instalada".
+
+~~~Kotlin
+try {
+    startActivity(Intent.createChooser(intent,"Elije un cliente de Correo:"))
+}catch (e : ActivityNotFoundException ){
+    Toast.makeText(this, "Ha ocurrido un error o no tienes una app de correo instalada", Toast.LENGTH_SHORT).show()
+}
+~~~
+<br>
+
+Con esto quedaría configurado el enviar el correo vía Gmail y se vería en la app de la siguiente manera (notar que se poenen dos direcciones de correo y ambas pasan con el putExtra a Gmail).
+
+<center>
+
+![20210807_123625](https://i.imgur.com/P0FtOTE.gif)
 
 </center>
 
