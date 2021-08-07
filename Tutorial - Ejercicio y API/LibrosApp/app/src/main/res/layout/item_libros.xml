@@ -19,7 +19,7 @@
         android:contentDescription="TODO" />
 
     <LinearLayout
-        android:layout_width="201dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:background="#3B9DAA"
@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/tvtitulo"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_gravity="end"
             android:gravity="center_horizontal"
@@ -44,7 +44,7 @@
 
         <TextView
             android:id="@+id/tvautor"
-            android:layout_width="200dp"
+            android:layout_width="168dp"
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:fontFamily="serif"

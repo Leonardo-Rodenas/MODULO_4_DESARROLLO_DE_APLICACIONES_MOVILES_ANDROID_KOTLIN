@@ -59,10 +59,9 @@ https://docs.microsoft.com/en-us/previous-versions/office/developer/exchange-ser
 
             try {
                 startActivity(Intent.createChooser(intent,"Elije un cliente de Correo:"))
-                Toast.makeText(this, "Correo enviado", Toast.LENGTH_SHORT).show()
                 //startActivity(intent)
             }catch (e : ActivityNotFoundException ){
-                Toast.makeText(this, "No tienes una app instalada que pueda hacer eso", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Ha ocurrido un error o no tienes una app de correo instalada", Toast.LENGTH_SHORT).show()
             }
 
             /*if (intent.resolveActivity(packageManager)!=null){
