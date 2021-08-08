@@ -2,6 +2,7 @@ package com.example.librosapp
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.librosapp.databinding.ItemLibrosBinding
@@ -45,14 +46,32 @@ el parámetro que identifica que la cantidad va a ser el tamaño de la lista)
 
 class LibrosAdapter (private val libros:googleBooks):RecyclerView.Adapter<LibrosHolder>() {
 
+    /*Aqui comienzo con lo de la Activity con la descripcion de los libros, basado en este video
+    https://www.youtube.com/watch?v=UbP8E6I91NA
+    https://www.youtube.com/watch?v=dB9JOsVx-yY <-- desde este video (el de arriba es para saber donde colocar lo del minuto  4:48
+    https://www.youtube.com/watch?v=EoJX7h7lGxM&t=64s <-- al terminar el anterior seguir con este
+
+    al inicio intente poner otro nombre a la variable mListener (le puse Itemescuchador) y no resulta,
+    eso es raro, hay que importar una cosa para que funcione*/
+
+    private  lateinit var mListener: onItemClickListener
+
+    interface onItemClickListener {
+
+        fun onItemClick (position : Int)
+
+    }
+
+    fun setOnItemClickListener (listener: onItemClickListener) {
+
+        mListener = listener
+        //ahora saltar a la clase librosHolder.kt
+    }
+
+    //Acá al final le pongo el mListener
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibrosHolder {
-       return LibrosHolder(
-           ItemLibrosBinding.inflate(
-               LayoutInflater.from(parent.context),
-               parent,
-           false
-           )
-       )
+       return LibrosHolder(ItemLibrosBinding.inflate( LayoutInflater.from(parent.context), parent, false), mListener)
+   /*continuo acá con los clicklistener de la activity libros*/
     }
 
     override fun onBindViewHolder(holder: LibrosHolder, position: Int) {

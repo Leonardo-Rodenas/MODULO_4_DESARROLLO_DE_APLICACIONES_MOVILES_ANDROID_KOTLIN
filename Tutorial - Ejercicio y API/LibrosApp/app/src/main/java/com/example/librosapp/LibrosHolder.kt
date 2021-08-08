@@ -10,4 +10,19 @@ de ItemLibrosBinding. _Todo esto va a pertenecer a la clase RecyclerView, conten
 que estamos creando y que recibe de parámetro la vista sobre la cual va a pintar (binding.root que hace
 referencia a la raiz donde esta item_libros = el cardview a pintar)*/
 
-class LibrosHolder(val binding: ItemLibrosBinding): RecyclerView.ViewHolder(binding.root) {}
+
+/*ojo --> acá al hacer lo de las descripciones de los libros agregue el listener:onItemblah a la clase
+y eso es un poco distinto a lo del video*/
+class LibrosHolder(val binding: ItemLibrosBinding, listener : LibrosAdapter.onItemClickListener): RecyclerView.ViewHolder(binding.root) {
+
+    init {
+        //salen 2 setOn... escojer el de las llaves {} el otro no funciona
+
+        itemView.setOnClickListener {
+
+            listener.onItemClick(adapterPosition)
+
+        //ahora me devuelvo al adapter y en la parte onCreateViewHolder al retorno le entrego mListener
+        }
+    }
+}

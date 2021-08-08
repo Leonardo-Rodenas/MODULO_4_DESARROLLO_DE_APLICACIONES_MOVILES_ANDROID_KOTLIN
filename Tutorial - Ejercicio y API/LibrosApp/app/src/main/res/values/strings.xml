@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">LibrosApp</string>
     <string name="titulo">Buscador de Libros</string>
-    <string name="buscar">¿Buscas algún libro?</string>
+    <string name="buscar">Clickea la lupa para buscar</string>
     <string name="enviarcorreo">enviarcorreo</string>
     <string name="volver">volver</string>
     <string name="direccioncorreo">Destinatarios</string>
