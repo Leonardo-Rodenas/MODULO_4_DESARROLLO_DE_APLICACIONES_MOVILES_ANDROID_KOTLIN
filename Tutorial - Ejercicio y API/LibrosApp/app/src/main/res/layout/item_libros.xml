@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="40dp"
+    android:id="@+id/tarjeta"
     android:layout_margin="16dp"
     android:layout_height="210dp"
     android:background="#3B9DAA"

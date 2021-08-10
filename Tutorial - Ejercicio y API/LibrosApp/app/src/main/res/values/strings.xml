@@ -11,4 +11,12 @@
     <string name="mensaje">Mensaje:</string>
     <string name="cuerpomensaje">Escribe un mensaje</string>
     <string name="botonenviar">ENVIAR</string>
+    <string name="titulolibro">Titulo</string>
+    <string name="Autor">Autor:</string>
+    <string name="Editorial">Editorial:</string>
+    <string name="paginas">Páginas:</string>
+    <string name="imagen"></string>
+    <string name="Categpria">Categoría:</string>
+    <string name="valoracion">Valoración:</string>
+    <string name="descripcion">Lorem Ipsum</string>
 </resources>

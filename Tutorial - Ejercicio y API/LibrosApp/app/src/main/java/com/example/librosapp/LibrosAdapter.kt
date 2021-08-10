@@ -1,8 +1,11 @@
 package com.example.librosapp
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.librosapp.databinding.ItemLibrosBinding
@@ -49,7 +52,7 @@ class LibrosAdapter (private val libros:googleBooks):RecyclerView.Adapter<Libros
     /*Aqui comienzo con lo de la Activity con la descripcion de los libros, basado en este video
     https://www.youtube.com/watch?v=UbP8E6I91NA
     https://www.youtube.com/watch?v=dB9JOsVx-yY <-- desde este video (el de arriba es para saber donde colocar lo del minuto  4:48
-    https://www.youtube.com/watch?v=EoJX7h7lGxM&t=64s <-- al terminar el anterior seguir con este
+    https://www.youtube.com/watch?v=EoJX7h7lGxM&t=64s <-- al terminar el anterior seguir con este, desde el minuto 4:00
 
     al inicio intente poner otro nombre a la variable mListener (le puse Itemescuchador) y no resulta,
     eso es raro, hay que importar una cosa para que funcione*/
@@ -88,6 +91,8 @@ class LibrosAdapter (private val libros:googleBooks):RecyclerView.Adapter<Libros
                 tvautor.text = autores[0]
                 tvtitulo.text = libros.items[position].volumeInfo.title
             } catch (e: NullPointerException) {
+                tarjeta.isVisible=true
+                tarjeta.visibility = View.GONE
                 ivlibro.setImageResource(R.mipmap.noimagendisponible)
                 tvautor.text = "Sin autor"
                 tvtitulo.text = "Sin título"
