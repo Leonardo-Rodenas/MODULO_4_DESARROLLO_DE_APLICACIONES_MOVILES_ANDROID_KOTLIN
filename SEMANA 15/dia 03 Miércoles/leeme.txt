@@ -1,0 +1,4 @@
+el avance del proyecto está en su propio repositorio ubicado en la siguiente direccion:
+
+https://github.com/Leonardo-Rodenas/Ejercicio_API_Nasa
+
