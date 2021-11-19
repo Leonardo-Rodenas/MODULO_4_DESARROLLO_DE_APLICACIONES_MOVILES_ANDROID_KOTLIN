@@ -10,7 +10,7 @@
 ## **Reflexión:** 
 La clase de hoy estuvo bastante mejor que la de ayer, por fin pudimos ver como se hacen las pruebas de la API con MockWebServer e implementarlas. El resto del horario comprende seguir con el proyecto anterior o empezar el proyecto final de evaluación. Por mi parte la vacuna contra el COVID-19 que me puse hayer me pegó fuertísimo, así que presento acá mis apuntes de la clase a modo de evidencia.
 
-## Pruebas instrumentales con MockWbeServer:
+## Pruebas instrumentales con MockWebServer:
 
 - **Ojo** --> Como proyecto base para ejecutar las pruebas se utiliza el proyecto de la lista de imagenes de los perros que se estudió en clases.
 
