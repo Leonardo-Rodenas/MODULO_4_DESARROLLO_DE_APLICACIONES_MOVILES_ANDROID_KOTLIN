@@ -8,7 +8,7 @@
 ---
 
 ## **Reflexión:** 
-Las clases siguen tan "agradables" como siempre. Preguntar una duda me deja con 5 más. Intenté hacer unas correcciones de parte de un video de youtube y personalmente algo he comprendido, me falta hacer lo de los favoritos pero es mejor no preguntarlo en clases porque no hay respuesta o son desagradables.
+Las clases siguen tan como siempre. Preguntar una duda me deja con 5 más. Intenté hacer unas correcciones de parte de un video de youtube y personalmente algo he comprendido, me falta hacer lo de los favoritos pero es mejor no preguntarlo en clases porque no me agradan o sirven las respuestas.
 
 ## **Avance:**
 
